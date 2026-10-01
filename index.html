@@ -35,9 +35,15 @@
     }
 
     @keyframes bgShift {
-      0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-      50% { background-position: 30% 20%, 70% 80%, 50% 50%; }
-      100% { background-position: 100% 100%, 0% 0%, 50% 50%; }
+      0% {
+        background-position: 0% 0%, 100% 100%, 50% 50%;
+      }
+      50% {
+        background-position: 30% 20%, 70% 80%, 50% 50%;
+      }
+      100% {
+        background-position: 100% 100%, 0% 0%, 50% 50%;
+      }
     }
 
     .aurora {
@@ -59,9 +65,15 @@
     }
 
     @keyframes auroraFlow {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
     }
 
     .hearts-field {
@@ -83,22 +95,40 @@
       user-select: none;
     }
 
-    .floating-heart::before { content: '❤'; }
-    .floating-heart.h2::before { content: '♡'; }
-    .floating-heart.h3::before { content: '❤'; }
-    .floating-heart.h4::before { content: '💜'; }
-    .floating-heart.h5::before { content: '♡'; }
+    .floating-heart::before {
+      content: '❤';
+    }
+
+    .floating-heart.h2::before {
+      content: '♡';
+    }
+
+    .floating-heart.h3::before {
+      content: '❤';
+    }
+
+    .floating-heart.h4::before {
+      content: '💜';
+    }
+
+    .floating-heart.h5::before {
+      content: '♡';
+    }
 
     @keyframes floatUp {
       0% {
         transform: translateY(0) translateX(0) rotate(0deg) scale(0.6);
         opacity: 0;
       }
-      10% { opacity: 0.9; }
+      10% {
+        opacity: 0.9;
+      }
       50% {
         transform: translateY(-50vh) translateX(30px) rotate(180deg) scale(1.1);
       }
-      90% { opacity: 0.8; }
+      90% {
+        opacity: 0.8;
+      }
       100% {
         transform: translateY(-110vh) translateX(-20px) rotate(360deg) scale(0.8);
         opacity: 0;
@@ -155,9 +185,15 @@
     }
 
     @keyframes titleShimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .subtitle {
@@ -213,11 +249,15 @@
     }
 
     @keyframes shimmerMove {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
     }
 
-    /* карточка со стрелочкой и двумя сетками 3×1 */
+    /* теннис */
     .moment.tennis-moment {
       padding: 1.8rem 1.6rem;
     }
@@ -310,14 +350,19 @@
       transform: scale(1.1);
     }
 
-    .tennis-caption {
-      margin-top: 0.9rem;
+    /* универсальные подписи под фото */
+    .tennis-caption,
+    .revn-caption,
+    .teplo-caption,
+    .nad-caption,
+    .zabota-caption,
+    .druzhba-caption,
+    .nikogda-caption {
       text-align: center;
-      font-size: 1rem;
       font-style: italic;
       text-transform: lowercase;
-      padding: 0.8rem 1rem;
-      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
       background: rgba(180, 100, 255, 0.08);
       border: 1px dashed rgba(200, 130, 255, 0.35);
       letter-spacing: 0.2px;
@@ -327,12 +372,17 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 600;
+      font-weight: 700;
       animation: highlightFlow 7s ease infinite;
       text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
     }
 
-    .tennis-caption .heart-inline {
+    .tennis-caption {
+      margin-top: 0.9rem;
+      font-size: 1rem;
+    }
+
+    .heart-inline {
       display: inline-block;
       color: #b57aff;
       filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
@@ -341,7 +391,7 @@
       margin-left: 0.3rem;
     }
 
-    /* карточка с двумя фото в ряд (для кисы) */
+    /* киса */
     .kisa-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -416,37 +466,44 @@
       line-height: 1.4;
     }
 
-    .kisa-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-      -webkit-text-fill-color: #b57aff;
-    }
-
-    /* карточка ревности — текст слева, фото справа */
-    .revn-moment {
+    /* общие двухколоночные карточки */
+    .revn-moment,
+    .zabota-moment,
+    .druzhba-moment,
+    .nikogda-moment {
       padding: 1.6rem;
     }
 
-    .revn-layout {
+    .revn-layout,
+    .zabota-layout,
+    .druzhba-layout,
+    .nikogda-layout {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 1.4rem;
       align-items: start;
     }
 
-    .revn-text {
+    .revn-text,
+    .zabota-text,
+    .druzhba-text,
+    .nikogda-text {
       min-width: 0;
     }
 
-    .revn-photo-block {
+    .revn-photo-block,
+    .zabota-photo-block,
+    .druzhba-photo-block,
+    .nikogda-photo-block {
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
     }
 
-    .revn-photo {
+    /* одиночное фото в двухколоночных */
+    .revn-photo,
+    .zabota-photo,
+    .nikogda-photo {
       position: relative;
       aspect-ratio: 3 / 4;
       border-radius: 1.2rem;
@@ -460,7 +517,9 @@
       transform: rotate(2deg);
     }
 
-    .revn-photo img {
+    .revn-photo img,
+    .zabota-photo img,
+    .nikogda-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -468,7 +527,9 @@
       transition: transform 0.6s ease;
     }
 
-    .revn-photo:hover {
+    .revn-photo:hover,
+    .zabota-photo:hover,
+    .nikogda-photo:hover {
       transform: scale(1.05) rotate(0deg);
       border-color: rgba(230, 170, 255, 0.9);
       box-shadow: 
@@ -478,57 +539,24 @@
       z-index: 3;
     }
 
-    .revn-photo:hover img {
+    .revn-photo:hover img,
+    .zabota-photo:hover img,
+    .nikogda-photo:hover img {
       transform: scale(1.08);
     }
 
-    .revn-caption {
-      text-align: center;
-      font-size: 1rem;
-      font-style: italic;
-      text-transform: lowercase;
-      padding: 0.85rem 1rem;
-      border-radius: 1rem;
-      background: rgba(180, 100, 255, 0.08);
-      border: 1px dashed rgba(200, 130, 255, 0.35);
-      letter-spacing: 0.2px;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
-      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-      animation: highlightFlow 7s ease infinite;
-      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
-    }
-
-    .revn-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-      -webkit-text-fill-color: #b57aff;
-      margin-left: 0.3rem;
-    }
-
-    /* карточка «ты моё тепло» — с двумя фото и подписью */
-    .teplo-moment {
-      padding: 1.6rem;
-    }
-
-    .teplo-gallery {
+    /* дружба — две фотки рядом */
+    .druzhba-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.4rem;
-      margin-bottom: 1.2rem;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
     }
 
-    .teplo-item {
+    .druzhba-item {
       position: relative;
       aspect-ratio: 3 / 4;
-      border-radius: 1.2rem;
+      border-radius: 1.1rem;
       overflow: hidden;
       border: 1.5px solid rgba(180, 100, 255, 0.4);
       box-shadow: 
@@ -538,10 +566,10 @@
       background: rgba(60, 20, 100, 0.3);
     }
 
-    .teplo-item:nth-child(1) { transform: rotate(-2.5deg); }
-    .teplo-item:nth-child(2) { transform: rotate(2.5deg); }
+    .druzhba-item:nth-child(1) { transform: rotate(-2deg); }
+    .druzhba-item:nth-child(2) { transform: rotate(2deg); }
 
-    .teplo-item img {
+    .druzhba-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -549,7 +577,7 @@
       transition: transform 0.6s ease;
     }
 
-    .teplo-item:hover {
+    .druzhba-item:hover {
       transform: scale(1.06) rotate(0deg);
       border-color: rgba(230, 170, 255, 0.9);
       box-shadow: 
@@ -559,46 +587,17 @@
       z-index: 3;
     }
 
-    .teplo-item:hover img {
+    .druzhba-item:hover img {
       transform: scale(1.1);
     }
 
-    .teplo-caption {
-      text-align: center;
-      font-size: 1.15rem;
-      font-style: italic;
-      text-transform: lowercase;
-      padding: 0.9rem 1rem;
-      border-radius: 1rem;
-      background: rgba(180, 100, 255, 0.08);
-      border: 1px dashed rgba(200, 130, 255, 0.35);
-      letter-spacing: 0.2px;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
-      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      animation: highlightFlow 7s ease infinite;
-      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
-      margin-bottom: 0.4rem;
-    }
-
-    .teplo-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-      -webkit-text-fill-color: #b57aff;
-      margin-left: 0.3rem;
-    }
-
-    /* карточка «безнадёжный и нарядная» — с двумя фото и подписью */
+    /* тепло и нарядная — 2 фото в ряд */
+    .teplo-moment,
     .nad-moment {
       padding: 1.6rem;
     }
 
+    .teplo-gallery,
     .nad-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -607,6 +606,7 @@
       margin-bottom: 1.2rem;
     }
 
+    .teplo-item,
     .nad-item {
       position: relative;
       aspect-ratio: 3 / 4;
@@ -620,9 +620,13 @@
       background: rgba(60, 20, 100, 0.3);
     }
 
+    .teplo-item:nth-child(1),
     .nad-item:nth-child(1) { transform: rotate(-2.5deg); }
+
+    .teplo-item:nth-child(2),
     .nad-item:nth-child(2) { transform: rotate(2.5deg); }
 
+    .teplo-item img,
     .nad-item img {
       width: 100%;
       height: 100%;
@@ -631,6 +635,7 @@
       transition: transform 0.6s ease;
     }
 
+    .teplo-item:hover,
     .nad-item:hover {
       transform: scale(1.06) rotate(0deg);
       border-color: rgba(230, 170, 255, 0.9);
@@ -641,130 +646,12 @@
       z-index: 3;
     }
 
+    .teplo-item:hover img,
     .nad-item:hover img {
       transform: scale(1.1);
     }
 
-    .nad-caption {
-      text-align: center;
-      font-size: 1.15rem;
-      font-style: italic;
-      text-transform: lowercase;
-      padding: 0.9rem 1rem;
-      border-radius: 1rem;
-      background: rgba(180, 100, 255, 0.08);
-      border: 1px dashed rgba(200, 130, 255, 0.35);
-      letter-spacing: 0.2px;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
-      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      animation: highlightFlow 7s ease infinite;
-      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
-      margin-bottom: 0.4rem;
-    }
-
-    .nad-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-      -webkit-text-fill-color: #b57aff;
-      margin-left: 0.3rem;
-    }
-
-    /* карточка «твоя забота» — с одним фото справа */
-    .zabota-moment {
-      padding: 1.6rem;
-    }
-
-    .zabota-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 1.4rem;
-      align-items: start;
-    }
-
-    .zabota-text {
-      min-width: 0;
-    }
-
-    .zabota-photo-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .zabota-photo {
-      position: relative;
-      aspect-ratio: 3 / 4;
-      border-radius: 1.2rem;
-      overflow: hidden;
-      border: 1.5px solid rgba(180, 100, 255, 0.4);
-      box-shadow: 
-        0 0 22px rgba(160, 80, 255, 0.3),
-        inset 0 0 10px rgba(160, 80, 255, 0.1);
-      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
-      background: rgba(60, 20, 100, 0.3);
-      transform: rotate(2deg);
-    }
-
-    .zabota-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .zabota-photo:hover {
-      transform: scale(1.05) rotate(0deg);
-      border-color: rgba(230, 170, 255, 0.9);
-      box-shadow: 
-        0 0 35px rgba(200, 120, 255, 0.6),
-        0 0 70px rgba(160, 80, 255, 0.4),
-        inset 0 0 18px rgba(200, 120, 255, 0.25);
-      z-index: 3;
-    }
-
-    .zabota-photo:hover img {
-      transform: scale(1.08);
-    }
-
-    .zabota-caption {
-      text-align: center;
-      font-size: 1.15rem;
-      font-style: italic;
-      text-transform: lowercase;
-      padding: 0.9rem 1rem;
-      border-radius: 1rem;
-      background: rgba(180, 100, 255, 0.08);
-      border: 1px dashed rgba(200, 130, 255, 0.35);
-      letter-spacing: 0.2px;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
-      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      animation: highlightFlow 7s ease infinite;
-      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
-    }
-
-    .zabota-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-      -webkit-text-fill-color: #b57aff;
-      margin-left: 0.3rem;
-    }
-
-    /* карточка с фото «твои фотки» */
+    /* фото «твои фотки» */
     .photos-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -848,13 +735,6 @@
       animation: highlightFlow 6s ease infinite;
     }
 
-    .photos-caption .heart-inline {
-      display: inline-block;
-      color: #b57aff;
-      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
-      animation: pulse 1.8s infinite;
-    }
-
     .moment-title {
       font-size: 1.15rem;
       font-weight: 500;
@@ -904,9 +784,15 @@
     }
 
     @keyframes highlightFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .song-line {
@@ -968,9 +854,18 @@
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
-      50% { transform: scale(1.25); filter: drop-shadow(0 0 20px rgba(200, 130, 255, 1)); }
-      100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9));
+      }
+      50% {
+        transform: scale(1.25);
+        filter: drop-shadow(0 0 20px rgba(200, 130, 255, 1));
+      }
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9));
+      }
     }
 
     .emoji {
@@ -1029,19 +924,25 @@
     .music-indicator .bars span:nth-child(4) { animation-delay: 0.45s; height: 14px; }
 
     @keyframes barWave {
-      0%, 100% { transform: scaleY(0.4); }
-      50% { transform: scaleY(1); }
+      0%, 100% {
+        transform: scaleY(0.4);
+      }
+      50% {
+        transform: scaleY(1);
+      }
     }
 
     @media (max-width: 700px) {
       .tennis-layout {
         grid-template-columns: 1fr;
       }
+
       .tennis-arrow {
         font-size: 1.8rem;
         padding: 0.3rem 0;
         animation: arrowPulseDown 2s ease-in-out infinite;
       }
+
       @keyframes arrowPulseDown {
         0%, 100% {
           transform: rotate(90deg) translateX(0);
@@ -1055,17 +956,16 @@
     }
 
     @media (max-width: 620px) {
-      .photos-layout {
+      .photos-layout,
+      .revn-layout,
+      .zabota-layout,
+      .druzhba-layout,
+      .nikogda-layout {
         grid-template-columns: 1fr;
       }
+
       .photos-grid {
         margin-top: 1rem;
-      }
-      .revn-layout {
-        grid-template-columns: 1fr;
-      }
-      .zabota-layout {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -1074,59 +974,68 @@
         padding: 2rem 1.4rem;
         border-radius: 2rem;
       }
+
       h1 {
         font-size: 1.45rem;
       }
+
       .subtitle {
         font-size: 0.98rem;
       }
+
       .moment {
         font-size: 0.98rem;
         padding: 1.2rem 1.2rem;
       }
+
       .moment.tennis-moment {
         padding: 1.2rem 1rem;
       }
+
       .moment-title {
         font-size: 1.05rem;
       }
+
       .final-word {
         font-size: 1.05rem;
       }
+
       .photos-caption {
         font-size: 0.92rem;
       }
+
       .music-indicator {
         top: 0.7rem;
         right: 0.7rem;
         padding: 0.4rem 0.7rem;
         font-size: 0.75rem;
       }
+
       .song-line {
         font-size: 1.05rem;
         padding: 0.9rem 0.9rem;
       }
+
       .kisa-caption {
         font-size: 1rem;
         padding: 0.8rem 0.9rem;
       }
+
       .kisa-caption .line {
         font-size: 1.1rem;
       }
+
       .kisa-gallery {
         gap: 0.7rem;
       }
-      .tennis-caption {
-        font-size: 0.92rem;
-        padding: 0.7rem 0.8rem;
-      }
-      .revn-caption {
-        font-size: 0.92rem;
-        padding: 0.7rem 0.8rem;
-      }
+
+      .tennis-caption,
+      .revn-caption,
       .teplo-caption,
       .nad-caption,
-      .zabota-caption {
+      .zabota-caption,
+      .druzhba-caption,
+      .nikogda-caption {
         font-size: 1rem;
         padding: 0.7rem 0.8rem;
       }
@@ -1139,7 +1048,10 @@
 
   <div class="music-indicator" id="musicIndicator">
     <div class="bars">
-      <span></span><span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <span>играет</span>
   </div>
@@ -1171,7 +1083,9 @@
               мы с тобой поднимаемся по лезвию в небо
             </div>
           </div>
+
           <div class="tennis-arrow">→</div>
+
           <div class="tennis-photos">
             <div class="photo-row">
               <div class="photo-cell">
@@ -1184,6 +1098,7 @@
                 <img src="tennis3.jpg" alt="даша на корте">
               </div>
             </div>
+
             <div class="photo-row">
               <div class="photo-cell">
                 <img src="tennis4.jpg" alt="даша">
@@ -1195,6 +1110,7 @@
                 <img src="tennis6.jpg" alt="даша">
               </div>
             </div>
+
             <div class="tennis-caption">
               ну разве быть грустной, лучше чем весёлой?<span class="heart-inline">❤</span>
             </div>
@@ -1271,6 +1187,7 @@
               ну, конечно, уверен, забери моё сердце
             </div>
           </div>
+
           <div class="revn-photo-block">
             <div class="revn-photo">
               <img src="revn1.jpg" alt="даша">
@@ -1441,6 +1358,7 @@
               знаешь, думать и париться — бесполезная тема
             </div>
           </div>
+
           <div>
             <div class="photos-grid">
               <div class="photo-item">
@@ -1502,7 +1420,7 @@
         </div>
       </div>
 
-      <!-- 19. забота — с фото справа -->
+      <!-- 19. забота -->
       <div class="moment zabota-moment">
         <div class="zabota-layout">
           <div class="zabota-text">
@@ -1516,6 +1434,7 @@
               эти белые стены стали для нас облаками
             </div>
           </div>
+
           <div class="zabota-photo-block">
             <div class="zabota-photo">
               <img src="zabota1.jpg" alt="даша">
@@ -1567,28 +1486,59 @@
       </div>
 
       <!-- 23. дружба -->
-      <div class="moment">
-        <div class="moment-title">
-          <span class="icon">💜</span> наша дружба...
-        </div>
-        <div class="moment-text">
-          наша дружба — это что-то <span class="highlight">нечто</span>. я иногда сам не понимаю, как нам удалось пронести её через пять лет: через ссоры, расстояния, непонимания, через всё. но мы смогли. и это не просто «дружба» — это что-то большее, тёплое, живое. то, что с годами не тускнеет, а становится только крепче. я не знаю, как это назвать, но оно — особенное. это только сейчас, и это не повторится.
-        </div>
-        <div class="song-line">
-          это только сейчас, это не повторится
+      <div class="moment druzhba-moment">
+        <div class="druzhba-layout">
+          <div class="druzhba-text">
+            <div class="moment-title">
+              <span class="icon">💜</span> наша дружба...
+            </div>
+            <div class="moment-text">
+              наша дружба — это что-то <span class="highlight">нечто</span>. я иногда сам не понимаю, как нам удалось пронести её через пять лет: через ссоры, расстояния, непонимания, через всё. но мы смогли. и это не просто «дружба» — это что-то большее, тёплое, живое. то, что с годами не тускнеет, а становится только крепче. я не знаю, как это назвать, но оно — особенное. это только сейчас, и это не повторится.
+            </div>
+            <div class="song-line">
+              это только сейчас, это не повторится
+            </div>
+          </div>
+
+          <div class="druzhba-photo-block">
+            <div class="druzhba-gallery">
+              <div class="druzhba-item">
+                <img src="druzhba1.jpg" alt="даша">
+              </div>
+              <div class="druzhba-item">
+                <img src="druzhba2.jpg" alt="даша">
+              </div>
+            </div>
+            <div class="druzhba-caption">
+              ты киса:3<span class="heart-inline">❤</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- 24. не хочу чтобы кончалось -->
-      <div class="moment">
-        <div class="moment-title">
-          <span class="icon">🥺</span> я не хочу, чтобы это кончалось...
-        </div>
-        <div class="moment-text">
-          и знаешь, что самое важное? я <span class="highlight">не хочу, чтобы это кончалось</span>. вот вообще. ни через год, ни через десять. я хочу, чтобы мы и дальше так общались — глупо, тепло, искренне. хочу, чтобы ты и дальше была в моей жизни. потому что без тебя как-то пусто, если честно. и я очень надеюсь, что ты это чувствуешь так же. я такую никогда не забуду.
-        </div>
-        <div class="song-line">
-          никогда не забуду...
+      <div class="moment nikogda-moment">
+        <div class="nikogda-layout">
+          <div class="nikogda-text">
+            <div class="moment-title">
+              <span class="icon">🥺</span> я не хочу, чтобы это кончалось...
+            </div>
+            <div class="moment-text">
+              и знаешь, что самое важное? я <span class="highlight">не хочу, чтобы это кончалось</span>. вот вообще. ни через год, ни через десять. я хочу, чтобы мы и дальше так общались — глупо, тепло, искренне. хочу, чтобы ты и дальше была в моей жизни. потому что без тебя как-то пусто, если честно. и я очень надеюсь, что ты это чувствуешь так же. я такую никогда не забуду.
+            </div>
+            <div class="song-line">
+              никогда не забуду...
+            </div>
+          </div>
+
+          <div class="nikogda-photo-block">
+            <div class="nikogda-photo">
+              <img src="nikogda1.jpg" alt="ты куколка">
+            </div>
+            <div class="nikogda-caption">
+              ты куколка<span class="heart-inline">:3</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1679,6 +1629,7 @@
       };
 
       const events = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
+
       const onFirstInteract = () => {
         tryPlay();
         if (started) {
