@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>даше — спасибо за 5 лет</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: #07040d;
+      background-image: 
+        radial-gradient(circle at 20% 10%, rgba(120, 40, 200, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(160, 60, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(80, 20, 140, 0.08) 0%, transparent 70%);
+      font-family: 'segoe ui', 'helvetica neue', sans-serif;
+      color: #e8ddf7;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: bgShift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0% {
+        background-position: 0% 0%, 100% 100%, 50% 50%;
+        background-size: 100% 100%, 100% 100%, 100% 100%;
+      }
+      50% {
+        background-position: 30% 20%, 70% 80%, 50% 50%;
+      }
+      100% {
+        background-position: 100% 100%, 0% 0%, 50% 50%;
+      }
+    }
+
+    /* переливающийся градиентный фон */
+    .aurora {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: 
+        linear-gradient(135deg, 
+          rgba(90, 20, 160, 0.12) 0%,
+          rgba(160, 60, 255, 0.08) 25%,
+          rgba(60, 10, 120, 0.15) 50%,
+          rgba(200, 100, 255, 0.07) 75%,
+          rgba(90, 20, 160, 0.12) 100%);
+      background-size: 400% 400%;
+      animation: auroraFlow 22s ease infinite;
+      mix-blend-mode: screen;
+      filter: blur(30px);
+    }
+
+    @keyframes auroraFlow {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* плавающие сердечки */
+    .hearts-field {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -60px;
+      color: #b57aff;
+      font-size: 1.5rem;
+      opacity: 0;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.8)) drop-shadow(0 0 16px rgba(140, 60, 220, 0.5));
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    .floating-heart::before {
+      content: '❤';
+    }
+
+    /* разные варианты сердечек */
+    .floating-heart.h2::before { content: '♡'; }
+    .floating-heart.h3::before { content: '❤'; }
+    .floating-heart.h4::before { content: '💜'; }
+    .floating-heart.h5::before { content: '♡'; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.9;
+      }
+      50% {
+        transform: translateY(-50vh) translateX(30px) rotate(180deg) scale(1.1);
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) translateX(-20px) rotate(360deg) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 5;
+      max-width: 780px;
+      width: 100%;
+      background: rgba(18, 8, 30, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 2.5rem;
+      padding: 2.8rem 2.2rem;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(180, 100, 255, 0.15),
+        inset 0 0 60px rgba(120, 40, 200, 0.08);
+      border: 1px solid rgba(180, 100, 255, 0.15);
+      animation: containerGlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes containerGlow {
+      0% {
+        box-shadow: 
+          0 20px 50px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(180, 100, 255, 0.15),
+          inset 0 0 60px rgba(120, 40, 200, 0.08);
+      }
+      100% {
+        box-shadow: 
+          0 20px 50px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(200, 130, 255, 0.3),
+          inset 0 0 80px rgba(160, 80, 255, 0.15);
+      }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.6rem;
+      background: linear-gradient(120deg, #e0c8ff, #b57aff, #d4a8ff, #a86eff, #e0c8ff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-left: 1.4rem;
+      border-left: 5px solid;
+      border-image: linear-gradient(180deg, #b57aff, #7b3fbf, #b57aff) 1;
+      text-transform: lowercase;
+      animation: titleShimmer 8s ease infinite;
+    }
+
+    @keyframes titleShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 1.6rem;
+      text-transform: lowercase;
+      color: #cdbce8;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #b57aff, #d4a8ff, #b57aff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+      animation: highlightFlow 5s ease infinite;
+    }
+
+    @keyframes highlightFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .moments {
+      margin: 2rem 0 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .moment {
+      background: rgba(120, 40, 200, 0.06);
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(180, 100, 255, 0.12);
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      text-transform: lowercase;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .moment::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(180, 100, 255, 0.08), transparent);
+      background-size: 200% 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .moment:hover {
+      background: rgba(140, 60, 220, 0.1);
+      border-color: rgba(200, 130, 255, 0.4);
+      transform: translateX(8px);
+      box-shadow: 
+        0 0 25px rgba(160, 80, 255, 0.2),
+        inset 0 0 20px rgba(160, 80, 255, 0.05);
+    }
+
+    .moment:hover::before {
+      opacity: 1;
+      animation: shimmerMove 2s linear infinite;
+    }
+
+    @keyframes shimmerMove {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .moment-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.6));
+      transition: transform 0.3s ease;
+    }
+
+    .moment:hover .moment-icon {
+      transform: scale(1.2) rotate(-6deg);
+    }
+
+    .moment-text {
+      flex: 1;
+    }
+
+    .moment-text strong {
+      font-weight: 500;
+      background: linear-gradient(120deg, #d4a8ff, #b57aff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .final-word {
+      margin-top: 2.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed rgba(180, 100, 255, 0.3);
+      font-size: 1.3rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+      color: #e0cdf5;
+      text-transform: lowercase;
+      font-style: italic;
+    }
+
+    .heart {
+      display: inline-block;
+      animation: pulse 1.8s infinite;
+      color: #b57aff;
+      filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9));
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
+      50% { transform: scale(1.25); filter: drop-shadow(0 0 20px rgba(200, 130, 255, 1)); }
+      100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.8rem 1.3rem;
+        border-radius: 2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 1rem;
+        border-left-width: 4px;
+      }
+      p, .moment {
+        font-size: 0.98rem;
+      }
+      .final-word {
+        font-size: 1.05rem;
+      }
+      .moment-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora"></div>
+  <div class="hearts-field" id="heartsField"></div>
+
+  <div class="container">
+    <h1>даша, спасибо за 5 лет</h1>
+    
+    <p>
+      за все неловкие моменты, которые стали лучшими.<br>
+      за смех сквозь смущение, за паузы, которые говорили громче слов.<br>
+      за то, что ты была рядом — в странном, в тёплом, в настоящем.
+    </p>
+
+    <div class="moments">
+      <div class="moment">
+        <span class="moment-icon">🌀</span>
+        <span class="moment-text"><strong>неловкий момент:</strong> когда мы одновременно сказали одно и то же, а потом полминуты молчали и краснели.</span>
+      </div>
+      <div class="moment">
+        <span class="moment-icon">☕</span>
+        <span class="moment-text"><strong>лучший момент:</strong> утро без спешки, кофе, и ты рассказываешь сон, который явно был важнее реальности.</span>
+      </div>
+      <div class="moment">
+        <span class="moment-icon">🎧</span>
+        <span class="moment-text"><strong>неловко, но смешно:</strong> как ты пела не ту песню, а я подпевал ещё громче, чтобы никто не заметил.</span>
+      </div>
+      <div class="moment">
+        <span class="moment-icon">🌧️</span>
+        <span class="moment-text"><strong>лучший момент:</strong> дождь, одна куртка на двоих, и мы делаем вид, что не мокнем.</span>
+      </div>
+      <div class="moment">
+        <span class="moment-icon">📸</span>
+        <span class="moment-text"><strong>самый неловкий кадр:</strong> та фотография, где мы оба с закрытыми глазами. но она лучшая.</span>
+      </div>
+      <div class="moment">
+        <span class="moment-icon">💬</span>
+        <span class="moment-text"><strong>просто лучший:</strong> ночные разговоры ни о чём, которые превращались во всё.</span>
+      </div>
+    </div>
+
+    <p style="margin-bottom: 0.5rem;">
+      пять лет — это не срок. это <span class="highlight">целая куча неловкого, тёплого и настоящего</span>, 
+      и я бы не поменял ни один момент.
+    </p>
+
+    <div class="final-word">
+      спасибо, даша. <span class="heart">❤</span><br>
+      и пусть дальше будет ещё больше неловких — и лучших.
+    </div>
+  </div>
+
+  <script>
+    // генерация плавающих фиолетовых сердечек
+    (function() {
+      const field = document.getElementById('heartsField');
+      const heartCount = 32; // количество сердечек на экране
+
+      const variants = ['', 'h2', 'h3', 'h4', 'h5'];
+
+      function createHeart() {
+        const heart = document.createElement('div');
+        const variant = variants[Math.floor(Math.random() * variants.length)];
+        heart.className = 'floating-heart' + (variant ? ' ' + variant : '');
+
+        // случайные параметры
+        const left = Math.random() * 100; // процент от ширины
+        const size = 0.8 + Math.random() * 2.2; // 0.8rem — 3rem
+        const duration = 10 + Math.random() * 14; // 10—24 секунды
+        const delay = Math.random() * 15; // задержка старта
+        const opacityMax = 0.5 + Math.random() * 0.5;
+
+        heart.style.left = left + '%';
+        heart.style.fontSize = size + 'rem';
+        heart.style.animationDuration = duration + 's';
+        heart.style.animationDelay = delay + 's';
+
+        // переопределяем ключевые кадры через inline не выйдет, поэтому используем переменные через css-переменные
+        heart.style.setProperty('--max-opacity', opacityMax);
+
+        // добавляем индивидуальный "дрейф" через css-переменные не так просто, оставим как есть
+        field.appendChild(heart);
+      }
+
+      for (let i = 0; i < heartCount; i++) {
+        createHeart();
+      }
+
+      // бесконечная регенерация — чтобы сердечки не заканчивались
+      // (animation infinite сам по себе работает, но delay может быть большим — ок)
+      // на случай, если браузер выгружает — добавим интервал на создание новых
+      setInterval(() => {
+        if (field.children.length < heartCount + 10) {
+          createHeart();
+        }
+        // удаляем "старые" сердечки, если их слишком много
+        if (field.children.length > heartCount + 25) {
+          field.removeChild(field.firstChild);
+        }
+      }, 8000);
+    })();
+  </script>
+</body>
+</html>
