@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>даше — спасибо за 5 лет</title>
+  <title>дашуля — спасибо за 5 лет</title>
   <style>
     * {
       margin: 0;
@@ -35,15 +35,9 @@
     }
 
     @keyframes bgShift {
-      0% {
-        background-position: 0% 0%, 100% 100%, 50% 50%;
-      }
-      50% {
-        background-position: 30% 20%, 70% 80%, 50% 50%;
-      }
-      100% {
-        background-position: 100% 100%, 0% 0%, 50% 50%;
-      }
+      0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+      50% { background-position: 30% 20%, 70% 80%, 50% 50%; }
+      100% { background-position: 100% 100%, 0% 0%, 50% 50%; }
     }
 
     .aurora {
@@ -127,6 +121,7 @@
         inset 0 0 60px rgba(120, 40, 200, 0.08);
       border: 1px solid rgba(180, 100, 255, 0.15);
       animation: containerGlow 6s ease-in-out infinite alternate;
+      text-align: center;
     }
 
     @keyframes containerGlow {
@@ -145,18 +140,16 @@
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.1rem;
       font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 2.2rem;
       background: linear-gradient(120deg, #e0c8ff, #b57aff, #d4a8ff, #a86eff, #e0c8ff);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      padding-left: 1.4rem;
-      border-left: 5px solid;
-      border-image: linear-gradient(180deg, #b57aff, #7b3fbf, #b57aff) 1;
       text-transform: lowercase;
       animation: titleShimmer 8s ease infinite;
     }
@@ -167,11 +160,100 @@
       100% { background-position: 0% 50%; }
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 1.6rem;
+    .subtitle {
+      font-size: 1.1rem;
       text-transform: lowercase;
       color: #cdbce8;
+      margin-bottom: 2rem;
+    }
+
+    /* столбик с карточками */
+    .moments {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .moment {
+      background: rgba(120, 40, 200, 0.06);
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid rgba(180, 100, 255, 0.12);
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      text-transform: lowercase;
+      font-size: 1.05rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .moment::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(180, 100, 255, 0.08), transparent);
+      background-size: 200% 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .moment:hover {
+      background: rgba(140, 60, 220, 0.1);
+      border-color: rgba(200, 130, 255, 0.4);
+      transform: translateX(8px);
+      box-shadow: 
+        0 0 25px rgba(160, 80, 255, 0.2),
+        inset 0 0 20px rgba(160, 80, 255, 0.05);
+    }
+
+    .moment:hover::before {
+      opacity: 1;
+      animation: shimmerMove 2s linear infinite;
+    }
+
+    @keyframes shimmerMove {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .moment-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      background: linear-gradient(120deg, #d4a8ff, #b57aff, #e0c8ff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: highlightFlow 5s ease infinite;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .moment-title .icon {
+      font-size: 1.3rem;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.7));
+    }
+
+    .moment-date {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 1rem;
+      background: rgba(180, 100, 255, 0.12);
+      border: 1px solid rgba(180, 100, 255, 0.3);
+      color: #d4a8ff;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+      font-style: normal;
+    }
+
+    .moment-text {
+      color: #d8c9ee;
+      line-height: 1.7;
     }
 
     .highlight {
@@ -191,15 +273,15 @@
     }
 
     .final-word {
-      margin-top: 2.4rem;
+      margin-top: 2rem;
       padding-top: 2rem;
       border-top: 1px dashed rgba(180, 100, 255, 0.3);
-      font-size: 1.3rem;
-      text-align: center;
+      font-size: 1.2rem;
       letter-spacing: 0.3px;
       color: #e0cdf5;
       text-transform: lowercase;
       font-style: italic;
+      text-align: center;
     }
 
     .heart {
@@ -215,21 +297,31 @@
       100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
     }
 
+    .emoji {
+      display: inline-block;
+      filter: drop-shadow(0 0 6px rgba(180, 100, 255, 0.6));
+    }
+
     @media (max-width: 480px) {
       .container {
         padding: 2rem 1.4rem;
         border-radius: 2rem;
       }
       h1 {
-        font-size: 1.75rem;
-        padding-left: 1rem;
-        border-left-width: 4px;
+        font-size: 1.45rem;
       }
-      p {
-        font-size: 1.02rem;
+      .subtitle {
+        font-size: 0.98rem;
+      }
+      .moment {
+        font-size: 0.98rem;
+        padding: 1.2rem 1.2rem;
+      }
+      .moment-title {
+        font-size: 1.05rem;
       }
       .final-word {
-        font-size: 1.08rem;
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -239,22 +331,45 @@
   <div class="hearts-field" id="heartsField"></div>
 
   <div class="container">
-    <h1>даша, спасибо за 5 лет</h1>
-    
-    <p>
-      за все неловкие моменты, которые стали лучшими.<br>
-      за смех сквозь смущение, за паузы, которые говорили громче слов.<br>
-      за то, что ты была рядом — в странном, в тёплом, в настоящем.
+    <h1>дашуля, спасибо тебе за эти 5 лет общения, за то, что мы пережили вдвоём <span class="emoji">:3</span></h1>
+
+    <p class="subtitle">
+      за все неловкие моменты, которые стали лучшими,<br>
+      за смех сквозь смущение и паузы, что говорили громче слов.
     </p>
 
-    <p style="margin-bottom: 0;">
-      пять лет — это не срок. это <span class="highlight">целая куча неловкого, тёплого и настоящего</span>, 
-      и я бы не поменял ни один момент.
-    </p>
+    <div class="moments">
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">🏔️</span> коза дереза
+        </div>
+        <span class="moment-date">23.05.25</span>
+        <div class="moment-text">
+          даш, спасибо тебе за это время, когда мы ездили в козу дерезу. это время было самым угарным и хуёвым, вплане общения — там был полный пиздец, но зато весело)
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">💜</span> а помнишь...
+        </div>
+        <div class="moment-text">
+          нам было тогда по <span class="highlight">10 лет</span>, и мы любили друг друга — естественно, сами не понимая этого. дети, которые просто хотели быть рядом, смеяться, ссориться и мириться. а оказалось — это и было самое настоящее.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">✨</span> от меня
+        </div>
+        <div class="moment-text">
+          пять лет — это не просто цифра. это сотни сообщений, глупых споров, ночных разговоров и моментов, которые я бы не променял ни на что. спасибо, что ты была в них. и пусть впереди будет ещё много — неловкого, смешного, тёплого и нашего. <span class="emoji">:3</span>
+        </div>
+      </div>
+    </div>
 
     <div class="final-word">
-      спасибо, даша. <span class="heart">❤</span><br>
-      и пусть дальше будет ещё больше неловких — и лучших.
+      и пусть дальше будет ещё больше неловких — и лучших. <span class="heart">❤</span>
     </div>
   </div>
 
