@@ -776,4 +776,9 @@
       events.forEach(ev => window.addEventListener(ev, onFirstInteract, { passive: true }));
 
       music.addEventListener('play', () => indicator.classList.add('visible'));
-      music.addEventListener('pause', () => indicator.classList.remove
+      music.addEventListener('pause', () => indicator.classList.remove('visible'));
+      music.addEventListener('error', () => indicator.classList.remove('visible'));
+    })();
+  </script>
+</body>
+</html>
