@@ -217,6 +217,68 @@
       100% { background-position: -200% 0; }
     }
 
+    /* карточка с фото — теперь в две колонки */
+    .moment.photos-moment {
+      padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+    }
+
+    .photos-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .photos-text {
+      min-width: 0;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .photo-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.35);
+      box-shadow: 
+        0 0 15px rgba(160, 80, 255, 0.25),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+    }
+
+    .photo-item:nth-child(1) { transform: rotate(-2deg); }
+    .photo-item:nth-child(2) { transform: rotate(2deg); }
+    .photo-item:nth-child(3) { transform: rotate(2deg); }
+    .photo-item:nth-child(4) { transform: rotate(-2deg); }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-item:hover {
+      transform: scale(1.05) rotate(0deg);
+      border-color: rgba(220, 160, 255, 0.8);
+      box-shadow: 
+        0 0 30px rgba(200, 120, 255, 0.5),
+        0 0 60px rgba(160, 80, 255, 0.3),
+        inset 0 0 15px rgba(200, 120, 255, 0.2);
+      z-index: 2;
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.08);
+    }
+
     .moment-title {
       font-size: 1.15rem;
       font-weight: 500;
@@ -301,6 +363,15 @@
       filter: drop-shadow(0 0 6px rgba(180, 100, 255, 0.6));
     }
 
+    @media (max-width: 620px) {
+      .photos-layout {
+        grid-template-columns: 1fr;
+      }
+      .photos-grid {
+        margin-top: 1rem;
+      }
+    }
+
     @media (max-width: 480px) {
       .container {
         padding: 2rem 1.4rem;
@@ -367,12 +438,30 @@
         </div>
       </div>
 
-      <div class="moment">
-        <div class="moment-title">
-          <span class="icon">📸</span> твои фотки...
-        </div>
-        <div class="moment-text">
-          а если честно — я до сих пор иногда пересматриваю твои фотки. есть те, где ты <span class="highlight">сумасшедшая</span>: растрёпанная, с диким взглядом, смеёшься так, что аж глаза закрываются. есть те, где ты <span class="highlight">милая</span>: сонная, закутанная в плед, с чашкой кофе. а есть те, где ты просто <span class="highlight">красивая</span> — и я каждый раз думаю, как мне вообще повезло, что ты есть. ты умеешь быть разной, и в каждой — настоящая. не удаляй их, ладно? <span class="emoji">:3</span>
+      <div class="moment photos-moment">
+        <div class="photos-layout">
+          <div class="photos-text">
+            <div class="moment-title">
+              <span class="icon">📸</span> твои фотки...
+            </div>
+            <div class="moment-text">
+              а если честно — я до сих пор иногда пересматриваю твои фотки. есть те, где ты <span class="highlight">сумасшедшая</span>: растрёпанная, с диким взглядом, смеёшься так, что аж глаза закрываются. есть те, где ты <span class="highlight">милая</span>: сонная, закутанная в плед, с чашкой кофе. а есть те, где ты просто <span class="highlight">красивая</span> — и я каждый раз думаю, как мне вообще повезло, что ты есть. ты умеешь быть разной, и в каждой — настоящая. не удаляй их, ладно? <span class="emoji">:3</span>
+            </div>
+          </div>
+          <div class="photos-grid">
+            <div class="photo-item">
+              <img src="photo1.jpg" alt="даша">
+            </div>
+            <div class="photo-item">
+              <img src="photo2.jpg" alt="даша">
+            </div>
+            <div class="photo-item">
+              <img src="photo3.jpg" alt="даша">
+            </div>
+            <div class="photo-item">
+              <img src="photo4.jpg" alt="даша">
+            </div>
+          </div>
         </div>
       </div>
 
