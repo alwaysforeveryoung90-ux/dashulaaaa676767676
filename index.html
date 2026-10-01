@@ -395,7 +395,6 @@
       filter: drop-shadow(0 0 6px rgba(180, 100, 255, 0.6));
     }
 
-    /* индикатор музыки */
     .music-indicator {
       position: fixed;
       top: 1.2rem;
@@ -497,7 +496,6 @@
   <div class="aurora"></div>
   <div class="hearts-field" id="heartsField"></div>
 
-  <!-- индикатор музыки -->
   <div class="music-indicator" id="musicIndicator">
     <div class="bars">
       <span></span><span></span><span></span><span></span>
@@ -505,7 +503,6 @@
     <span>играет</span>
   </div>
 
-  <!-- аудио на фоне -->
   <audio id="bgMusic" loop preload="auto">
     <source src="song.mp3" type="audio/mpeg">
   </audio>
@@ -582,6 +579,42 @@
 
       <div class="moment">
         <div class="moment-title">
+          <span class="icon">💬</span> твоя забота...
+        </div>
+        <div class="moment-text">
+          а знаешь, что я понял за эти годы? ты <span class="highlight">заботливая</span>. не напоказ, не громко — а тихо и по-настоящему. ты замечаешь, когда я не в настроении, даже если я пишу «всё норм». ты помнишь мелочи, которые я сам забываю. ты спрашиваешь «поел?», «поспал?», «как ты?» — и в этих простых словах больше тепла, чем в иных длинных речах. с тобой всегда как-то спокойнее. как будто кто-то держит за руку, даже через экран.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">🫂</span> твоя теплота...
+        </div>
+        <div class="moment-text">
+          по общению ты — <span class="highlight">самая тёплая</span>. с тобой можно молчать и не чувствовать неловкости. можно говорить обо всём: о глупом, о серьёзном, о том, что болит. можно смеяться до слёз, а через минуту обсуждать что-то важное. ты умеешь слушать так, что хочется рассказать всё. и отвечать так, что становится легче. я таких людей больше не встречал, честно.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">💜</span> наша дружба...
+        </div>
+        <div class="moment-text">
+          наша дружба — это что-то <span class="highlight">нечто</span>. я иногда сам не понимаю, как нам удалось пронести её через пять лет: через ссоры, расстояния, непонимания, через всё. но мы смогли. и это не просто «дружба» — это что-то большее, тёплое, живое. то, что с годами не тускнеет, а становится только крепче. я не знаю, как это назвать, но оно — особенное.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
+          <span class="icon">🥺</span> я не хочу, чтобы это кончалось...
+        </div>
+        <div class="moment-text">
+          и знаешь, что самое важное? я <span class="highlight">не хочу, чтобы это кончалось</span>. вот вообще. ни через год, ни через десять. я хочу, чтобы мы и дальше так общались — глупо, тепло, искренне. хочу, чтобы ты и дальше была в моей жизни. потому что без тебя как-то пусто, если честно. и я очень надеюсь, что ты это чувствуешь так же.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-title">
           <span class="icon">💜</span> а помнишь...
         </div>
         <div class="moment-text">
@@ -606,7 +639,6 @@
 
   <script>
     (function() {
-      // плавающие сердечки
       const field = document.getElementById('heartsField');
       const heartCount = 32;
       const variants = ['', 'h2', 'h3', 'h4', 'h5'];
@@ -642,13 +674,12 @@
         }
       }, 8000);
 
-      // автозапуск музыки при первом взаимодействии (вариант 2)
       const music = document.getElementById('bgMusic');
       const indicator = document.getElementById('musicIndicator');
       let started = false;
 
-      // попытка сразу (на случай, если браузер разрешает автоплей)
       music.volume = 0.5;
+
       const tryPlay = () => {
         if (started) return;
         const p = music.play();
@@ -656,13 +687,10 @@
           p.then(() => {
             started = true;
             indicator.classList.add('visible');
-          }).catch(() => {
-            // браузер заблокировал — ждём взаимодействия
-          });
+          }).catch(() => {});
         }
       };
 
-      // первое взаимодействие любого типа запускает музыку
       const events = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
       const onFirstInteract = () => {
         tryPlay();
@@ -673,19 +701,9 @@
 
       events.forEach(ev => window.addEventListener(ev, onFirstInteract, { passive: true }));
 
-      // показываем индикатор, когда музыка реально играет
-      music.addEventListener('play', () => {
-        indicator.classList.add('visible');
-      });
-
-      music.addEventListener('pause', () => {
-        indicator.classList.remove('visible');
-      });
-
-      // если музыка по какой-то причине не загрузилась — просто тихо игнорим
-      music.addEventListener('error', () => {
-        indicator.classList.remove('visible');
-      });
+      music.addEventListener('play', () => indicator.classList.add('visible'));
+      music.addEventListener('pause', () => indicator.classList.remove('visible'));
+      music.addEventListener('error', () => indicator.classList.remove('visible'));
     })();
   </script>
 </body>
