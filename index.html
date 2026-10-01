@@ -278,7 +278,6 @@
       transform: scale(1.08);
     }
 
-    /* подпись под фото */
     .photos-caption {
       margin-top: 1.2rem;
       font-size: 1rem;
@@ -396,6 +395,62 @@
       filter: drop-shadow(0 0 6px rgba(180, 100, 255, 0.6));
     }
 
+    /* индикатор музыки */
+    .music-indicator {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 2rem;
+      background: rgba(30, 12, 50, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(180, 100, 255, 0.35);
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.3);
+      color: #d4a8ff;
+      font-size: 0.85rem;
+      text-transform: lowercase;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .music-indicator.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .music-indicator .bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+    }
+
+    .music-indicator .bars span {
+      display: block;
+      width: 3px;
+      background: linear-gradient(180deg, #d4a8ff, #b57aff);
+      border-radius: 2px;
+      animation: barWave 1.1s ease-in-out infinite;
+      box-shadow: 0 0 6px rgba(180, 100, 255, 0.8);
+    }
+
+    .music-indicator .bars span:nth-child(1) { animation-delay: 0s; height: 6px; }
+    .music-indicator .bars span:nth-child(2) { animation-delay: 0.15s; height: 12px; }
+    .music-indicator .bars span:nth-child(3) { animation-delay: 0.3s; height: 8px; }
+    .music-indicator .bars span:nth-child(4) { animation-delay: 0.45s; height: 14px; }
+
+    @keyframes barWave {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
+    }
+
     @media (max-width: 620px) {
       .photos-layout {
         grid-template-columns: 1fr;
@@ -429,12 +484,31 @@
       .photos-caption {
         font-size: 0.92rem;
       }
+      .music-indicator {
+        top: 0.7rem;
+        right: 0.7rem;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="aurora"></div>
   <div class="hearts-field" id="heartsField"></div>
+
+  <!-- индикатор музыки -->
+  <div class="music-indicator" id="musicIndicator">
+    <div class="bars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span>играет</span>
+  </div>
+
+  <!-- аудио на фоне -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
 
   <div class="container">
     <h1>дашуля, спасибо тебе за эти 5 лет общения, за то, что мы пережили вдвоём <span class="emoji">:3</span></h1>
@@ -532,6 +606,7 @@
 
   <script>
     (function() {
+      // плавающие сердечки
       const field = document.getElementById('heartsField');
       const heartCount = 32;
       const variants = ['', 'h2', 'h3', 'h4', 'h5'];
@@ -566,6 +641,51 @@
           field.removeChild(field.firstChild);
         }
       }, 8000);
+
+      // автозапуск музыки при первом взаимодействии (вариант 2)
+      const music = document.getElementById('bgMusic');
+      const indicator = document.getElementById('musicIndicator');
+      let started = false;
+
+      // попытка сразу (на случай, если браузер разрешает автоплей)
+      music.volume = 0.5;
+      const tryPlay = () => {
+        if (started) return;
+        const p = music.play();
+        if (p !== undefined) {
+          p.then(() => {
+            started = true;
+            indicator.classList.add('visible');
+          }).catch(() => {
+            // браузер заблокировал — ждём взаимодействия
+          });
+        }
+      };
+
+      // первое взаимодействие любого типа запускает музыку
+      const events = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
+      const onFirstInteract = () => {
+        tryPlay();
+        if (started) {
+          events.forEach(ev => window.removeEventListener(ev, onFirstInteract));
+        }
+      };
+
+      events.forEach(ev => window.addEventListener(ev, onFirstInteract, { passive: true }));
+
+      // показываем индикатор, когда музыка реально играет
+      music.addEventListener('play', () => {
+        indicator.classList.add('visible');
+      });
+
+      music.addEventListener('pause', () => {
+        indicator.classList.remove('visible');
+      });
+
+      // если музыка по какой-то причине не загрузилась — просто тихо игнорим
+      music.addEventListener('error', () => {
+        indicator.classList.remove('visible');
+      });
     })();
   </script>
 </body>
