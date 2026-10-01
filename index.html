@@ -217,9 +217,8 @@
       100% { background-position: -200% 0; }
     }
 
-    /* карточка с фото — теперь в две колонки */
     .moment.photos-moment {
-      padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+      padding: 1.6rem;
     }
 
     .photos-layout {
@@ -277,6 +276,40 @@
 
     .photo-item:hover img {
       transform: scale(1.08);
+    }
+
+    /* подпись под фото */
+    .photos-caption {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0cdf5;
+      text-align: center;
+      font-style: italic;
+      text-transform: lowercase;
+      background: rgba(180, 100, 255, 0.06);
+      border: 1px dashed rgba(180, 100, 255, 0.3);
+      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .photos-caption .glow {
+      background: linear-gradient(120deg, #d4a8ff, #b57aff, #e0c8ff, #b57aff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+      font-style: normal;
+      animation: highlightFlow 6s ease infinite;
+    }
+
+    .photos-caption .heart-inline {
+      display: inline-block;
+      color: #b57aff;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
+      animation: pulse 1.8s infinite;
     }
 
     .moment-title {
@@ -393,6 +426,9 @@
       .final-word {
         font-size: 1.05rem;
       }
+      .photos-caption {
+        font-size: 0.92rem;
+      }
     }
   </style>
 </head>
@@ -448,18 +484,23 @@
               а если честно — я до сих пор иногда пересматриваю твои фотки. есть те, где ты <span class="highlight">сумасшедшая</span>: растрёпанная, с диким взглядом, смеёшься так, что аж глаза закрываются. есть те, где ты <span class="highlight">милая</span>: сонная, закутанная в плед, с чашкой кофе. а есть те, где ты просто <span class="highlight">красивая</span> — и я каждый раз думаю, как мне вообще повезло, что ты есть. ты умеешь быть разной, и в каждой — настоящая. не удаляй их, ладно? <span class="emoji">:3</span>
             </div>
           </div>
-          <div class="photos-grid">
-            <div class="photo-item">
-              <img src="photo1.jpg" alt="даша">
+          <div>
+            <div class="photos-grid">
+              <div class="photo-item">
+                <img src="photo1.jpg" alt="даша">
+              </div>
+              <div class="photo-item">
+                <img src="photo2.jpg" alt="даша">
+              </div>
+              <div class="photo-item">
+                <img src="photo3.jpg" alt="даша">
+              </div>
+              <div class="photo-item">
+                <img src="photo4.jpg" alt="даша">
+              </div>
             </div>
-            <div class="photo-item">
-              <img src="photo2.jpg" alt="даша">
-            </div>
-            <div class="photo-item">
-              <img src="photo3.jpg" alt="даша">
-            </div>
-            <div class="photo-item">
-              <img src="photo4.jpg" alt="даша">
+            <div class="photos-caption">
+              ты красивая абсолютно всегда и везде, и ненакрашенная, и сонная, и просто злая, ты красивая — <span class="glow">всегда</span> <span class="heart-inline">❤</span>
             </div>
           </div>
         </div>
