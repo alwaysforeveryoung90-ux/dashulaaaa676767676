@@ -424,6 +424,347 @@
       -webkit-text-fill-color: #b57aff;
     }
 
+    /* карточка ревности — текст слева, фото справа */
+    .revn-moment {
+      padding: 1.6rem;
+    }
+
+    .revn-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .revn-text {
+      min-width: 0;
+    }
+
+    .revn-photo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .revn-photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.4);
+      box-shadow: 
+        0 0 22px rgba(160, 80, 255, 0.3),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+      transform: rotate(2deg);
+    }
+
+    .revn-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .revn-photo:hover {
+      transform: scale(1.05) rotate(0deg);
+      border-color: rgba(230, 170, 255, 0.9);
+      box-shadow: 
+        0 0 35px rgba(200, 120, 255, 0.6),
+        0 0 70px rgba(160, 80, 255, 0.4),
+        inset 0 0 18px rgba(200, 120, 255, 0.25);
+      z-index: 3;
+    }
+
+    .revn-photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .revn-caption {
+      text-align: center;
+      font-size: 1rem;
+      font-style: italic;
+      text-transform: lowercase;
+      padding: 0.85rem 1rem;
+      border-radius: 1rem;
+      background: rgba(180, 100, 255, 0.08);
+      border: 1px dashed rgba(200, 130, 255, 0.35);
+      letter-spacing: 0.2px;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
+      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
+    }
+
+    .revn-caption .heart-inline {
+      display: inline-block;
+      color: #b57aff;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
+      animation: pulse 1.8s infinite;
+      -webkit-text-fill-color: #b57aff;
+      margin-left: 0.3rem;
+    }
+
+    /* карточка «ты моё тепло» — с двумя фото и подписью */
+    .teplo-moment {
+      padding: 1.6rem;
+    }
+
+    .teplo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .teplo-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.4);
+      box-shadow: 
+        0 0 20px rgba(160, 80, 255, 0.3),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+    }
+
+    .teplo-item:nth-child(1) { transform: rotate(-2.5deg); }
+    .teplo-item:nth-child(2) { transform: rotate(2.5deg); }
+
+    .teplo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .teplo-item:hover {
+      transform: scale(1.06) rotate(0deg);
+      border-color: rgba(230, 170, 255, 0.9);
+      box-shadow: 
+        0 0 35px rgba(200, 120, 255, 0.6),
+        0 0 70px rgba(160, 80, 255, 0.4),
+        inset 0 0 20px rgba(200, 120, 255, 0.25);
+      z-index: 3;
+    }
+
+    .teplo-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .teplo-caption {
+      text-align: center;
+      font-size: 1.15rem;
+      font-style: italic;
+      text-transform: lowercase;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: rgba(180, 100, 255, 0.08);
+      border: 1px dashed rgba(200, 130, 255, 0.35);
+      letter-spacing: 0.2px;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
+      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
+      margin-bottom: 0.4rem;
+    }
+
+    .teplo-caption .heart-inline {
+      display: inline-block;
+      color: #b57aff;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
+      animation: pulse 1.8s infinite;
+      -webkit-text-fill-color: #b57aff;
+      margin-left: 0.3rem;
+    }
+
+    /* карточка «безнадёжный и нарядная» — с двумя фото и подписью */
+    .nad-moment {
+      padding: 1.6rem;
+    }
+
+    .nad-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .nad-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.4);
+      box-shadow: 
+        0 0 20px rgba(160, 80, 255, 0.3),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+    }
+
+    .nad-item:nth-child(1) { transform: rotate(-2.5deg); }
+    .nad-item:nth-child(2) { transform: rotate(2.5deg); }
+
+    .nad-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .nad-item:hover {
+      transform: scale(1.06) rotate(0deg);
+      border-color: rgba(230, 170, 255, 0.9);
+      box-shadow: 
+        0 0 35px rgba(200, 120, 255, 0.6),
+        0 0 70px rgba(160, 80, 255, 0.4),
+        inset 0 0 20px rgba(200, 120, 255, 0.25);
+      z-index: 3;
+    }
+
+    .nad-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .nad-caption {
+      text-align: center;
+      font-size: 1.15rem;
+      font-style: italic;
+      text-transform: lowercase;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: rgba(180, 100, 255, 0.08);
+      border: 1px dashed rgba(200, 130, 255, 0.35);
+      letter-spacing: 0.2px;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
+      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
+      margin-bottom: 0.4rem;
+    }
+
+    .nad-caption .heart-inline {
+      display: inline-block;
+      color: #b57aff;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
+      animation: pulse 1.8s infinite;
+      -webkit-text-fill-color: #b57aff;
+      margin-left: 0.3rem;
+    }
+
+    /* карточка «твоя забота» — с одним фото справа */
+    .zabota-moment {
+      padding: 1.6rem;
+    }
+
+    .zabota-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .zabota-text {
+      min-width: 0;
+    }
+
+    .zabota-photo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .zabota-photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.4);
+      box-shadow: 
+        0 0 22px rgba(160, 80, 255, 0.3),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+      transform: rotate(2deg);
+    }
+
+    .zabota-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .zabota-photo:hover {
+      transform: scale(1.05) rotate(0deg);
+      border-color: rgba(230, 170, 255, 0.9);
+      box-shadow: 
+        0 0 35px rgba(200, 120, 255, 0.6),
+        0 0 70px rgba(160, 80, 255, 0.4),
+        inset 0 0 18px rgba(200, 120, 255, 0.25);
+      z-index: 3;
+    }
+
+    .zabota-photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .zabota-caption {
+      text-align: center;
+      font-size: 1.15rem;
+      font-style: italic;
+      text-transform: lowercase;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: rgba(180, 100, 255, 0.08);
+      border: 1px dashed rgba(200, 130, 255, 0.35);
+      letter-spacing: 0.2px;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
+      background-image: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 18px rgba(180, 100, 255, 0.35);
+    }
+
+    .zabota-caption .heart-inline {
+      display: inline-block;
+      color: #b57aff;
+      filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.9));
+      animation: pulse 1.8s infinite;
+      -webkit-text-fill-color: #b57aff;
+      margin-left: 0.3rem;
+    }
+
+    /* карточка с фото «твои фотки» */
     .photos-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -720,6 +1061,12 @@
       .photos-grid {
         margin-top: 1rem;
       }
+      .revn-layout {
+        grid-template-columns: 1fr;
+      }
+      .zabota-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
@@ -773,6 +1120,16 @@
         font-size: 0.92rem;
         padding: 0.7rem 0.8rem;
       }
+      .revn-caption {
+        font-size: 0.92rem;
+        padding: 0.7rem 0.8rem;
+      }
+      .teplo-caption,
+      .nad-caption,
+      .zabota-caption {
+        font-size: 1rem;
+        padding: 0.7rem 0.8rem;
+      }
     }
   </style>
 </head>
@@ -800,7 +1157,7 @@
     </p>
 
     <div class="moments">
-      <!-- 1. теннис — с двумя сетками 3 фото справа -->
+      <!-- 1. теннис -->
       <div class="moment tennis-moment">
         <div class="tennis-layout">
           <div class="tennis-text">
@@ -816,7 +1173,6 @@
           </div>
           <div class="tennis-arrow">→</div>
           <div class="tennis-photos">
-            <!-- сетка 1 -->
             <div class="photo-row">
               <div class="photo-cell">
                 <img src="tennis1.jpg" alt="даша на теннисе">
@@ -828,7 +1184,6 @@
                 <img src="tennis3.jpg" alt="даша на корте">
               </div>
             </div>
-            <!-- пробел + сетка 2 -->
             <div class="photo-row">
               <div class="photo-cell">
                 <img src="tennis4.jpg" alt="даша">
@@ -840,7 +1195,6 @@
                 <img src="tennis6.jpg" alt="даша">
               </div>
             </div>
-            <!-- подпись под второй сеткой -->
             <div class="tennis-caption">
               ну разве быть грустной, лучше чем весёлой?<span class="heart-inline">❤</span>
             </div>
@@ -848,7 +1202,7 @@
         </div>
       </div>
 
-      <!-- 2. киса не грусти — с двумя фото и подписью -->
+      <!-- 2. киса не грусти -->
       <div class="moment">
         <div class="moment-title">
           <span class="icon">🫂</span> дашуля, киса, не грусти...
@@ -904,26 +1258,52 @@
       </div>
 
       <!-- 5. ревность -->
-      <div class="moment">
-        <div class="moment-title">
-          <span class="icon">😤</span> а вот помнишь...
-        </div>
-        <div class="moment-text">
-          ты ревновала меня к вике, я тебя к серёге — но никто из них нам не нравился. были времена, хорошо, что сейчас такого нет. а тогда это казалось концом света: обиды, молчание, выяснения. а теперь вспоминаешь — и улыбаешься. потому что это были просто <span class="highlight">двое, которые боялись потерять друг друга</span> и не знали, как сказать это по-другому. и хорошо, что мы это переросли — стали спокойнее, ближе и честнее. а серёга и вика? пусть живут)
-        </div>
-        <div class="song-line">
-          ну, конечно, уверен, забери моё сердце
+      <div class="moment revn-moment">
+        <div class="revn-layout">
+          <div class="revn-text">
+            <div class="moment-title">
+              <span class="icon">😤</span> а вот помнишь...
+            </div>
+            <div class="moment-text">
+              ты ревновала меня к вике, я тебя к серёге — но никто из них нам не нравился. были времена, хорошо, что сейчас такого нет. а тогда это казалось концом света: обиды, молчание, выяснения. а теперь вспоминаешь — и улыбаешься. потому что это были просто <span class="highlight">двое, которые боялись потерять друг друга</span> и не знали, как сказать это по-другому. и хорошо, что мы это переросли — стали спокойнее, ближе и честнее. а серёга и вика? пусть живут)
+            </div>
+            <div class="song-line">
+              ну, конечно, уверен, забери моё сердце
+            </div>
+          </div>
+          <div class="revn-photo-block">
+            <div class="revn-photo">
+              <img src="revn1.jpg" alt="даша">
+            </div>
+            <div class="revn-caption">
+              я думаю, что серёга не достоин тебя <span class="heart-inline">❤</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- 6. тепло -->
-      <div class="moment">
+      <div class="moment teplo-moment">
         <div class="moment-title">
           <span class="icon">🔥</span> ты моё тепло...
         </div>
         <div class="moment-text">
           знаешь, я иногда думаю: как так вышло, что один человек может согревать сильнее, чем что угодно? ты просто пишешь — и мне уже теплее. просто звонишь — и день становится лучше. это не магия, это ты. и этого тепла хватает надолго, чтобы пережить всё.
         </div>
+
+        <div class="teplo-gallery">
+          <div class="teplo-item">
+            <img src="teplo1.jpg" alt="даша">
+          </div>
+          <div class="teplo-item">
+            <img src="teplo2.jpg" alt="даша">
+          </div>
+        </div>
+
+        <div class="teplo-caption">
+          ты очень красивая и тёплая<span class="heart-inline">:3</span>
+        </div>
+
         <div class="song-line">
           его хватит надолго, чтобы согреться
         </div>
@@ -956,13 +1336,27 @@
       </div>
 
       <!-- 9. безнадёжный и нарядная -->
-      <div class="moment">
+      <div class="moment nad-moment">
         <div class="moment-title">
           <span class="icon">🖤</span> безнадёжный и нарядная...
         </div>
         <div class="moment-text">
           ты всегда рядом, даже когда я не заслуживаю. ты — светлая, красивая, нарядная — и всё равно со мной. я до сих пор не понимаю, как тебе не надоедает такой безнадёжный, как я. но ты остаёшься. и я это очень ценю.
         </div>
+
+        <div class="nad-gallery">
+          <div class="nad-item">
+            <img src="nad1.jpg" alt="даша">
+          </div>
+          <div class="nad-item">
+            <img src="nad2.jpg" alt="даша">
+          </div>
+        </div>
+
+        <div class="nad-caption">
+          ты всегда нарядная и красивая<span class="heart-inline">❤</span>
+        </div>
+
         <div class="song-line">
           я такой безнадёжный, ты такая нарядная
         </div>
@@ -1108,16 +1502,28 @@
         </div>
       </div>
 
-      <!-- 19. забота -->
-      <div class="moment">
-        <div class="moment-title">
-          <span class="icon">💬</span> твоя забота...
-        </div>
-        <div class="moment-text">
-          а знаешь, что я понял за эти годы? ты <span class="highlight">заботливая</span>. не напоказ, не громко — а тихо и по-настоящему. ты замечаешь, когда я не в настроении, даже если я пишу «всё норм». ты помнишь мелочи, которые я сам забываю. ты спрашиваешь «поел?», «поспал?», «как ты?» — и в этих простых словах больше тепла, чем в иных длинных речах. с тобой всегда как-то спокойнее. как будто кто-то держит за руку, даже через экран.
-        </div>
-        <div class="song-line">
-          эти белые стены стали для нас облаками
+      <!-- 19. забота — с фото справа -->
+      <div class="moment zabota-moment">
+        <div class="zabota-layout">
+          <div class="zabota-text">
+            <div class="moment-title">
+              <span class="icon">💬</span> твоя забота...
+            </div>
+            <div class="moment-text">
+              а знаешь, что я понял за эти годы? ты <span class="highlight">заботливая</span>. не напоказ, не громко — а тихо и по-настоящему. ты замечаешь, когда я не в настроении, даже если я пишу «всё норм». ты помнишь мелочи, которые я сам забываю. ты спрашиваешь «поел?», «поспал?», «как ты?» — и в этих простых словах больше тепла, чем в иных длинных речах. с тобой всегда как-то спокойнее. как будто кто-то держит за руку, даже через экран.
+            </div>
+            <div class="song-line">
+              эти белые стены стали для нас облаками
+            </div>
+          </div>
+          <div class="zabota-photo-block">
+            <div class="zabota-photo">
+              <img src="zabota1.jpg" alt="даша">
+            </div>
+            <div class="zabota-caption">
+              заботливая<span class="heart-inline">:3</span>
+            </div>
+          </div>
         </div>
       </div>
 
