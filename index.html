@@ -35,15 +35,9 @@
     }
 
     @keyframes bgShift {
-      0% {
-        background-position: 0% 0%, 100% 100%, 50% 50%;
-      }
-      50% {
-        background-position: 30% 20%, 70% 80%, 50% 50%;
-      }
-      100% {
-        background-position: 100% 100%, 0% 0%, 50% 50%;
-      }
+      0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+      50% { background-position: 30% 20%, 70% 80%, 50% 50%; }
+      100% { background-position: 100% 100%, 0% 0%, 50% 50%; }
     }
 
     .aurora {
@@ -65,15 +59,9 @@
     }
 
     @keyframes auroraFlow {
-      0% {
-        background-position: 0% 0%;
-      }
-      50% {
-        background-position: 100% 100%;
-      }
-      100% {
-        background-position: 0% 0%;
-      }
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
     }
 
     .hearts-field {
@@ -95,40 +83,22 @@
       user-select: none;
     }
 
-    .floating-heart::before {
-      content: '❤';
-    }
-
-    .floating-heart.h2::before {
-      content: '♡';
-    }
-
-    .floating-heart.h3::before {
-      content: '❤';
-    }
-
-    .floating-heart.h4::before {
-      content: '💜';
-    }
-
-    .floating-heart.h5::before {
-      content: '♡';
-    }
+    .floating-heart::before { content: '❤'; }
+    .floating-heart.h2::before { content: '♡'; }
+    .floating-heart.h3::before { content: '❤'; }
+    .floating-heart.h4::before { content: '💜'; }
+    .floating-heart.h5::before { content: '♡'; }
 
     @keyframes floatUp {
       0% {
         transform: translateY(0) translateX(0) rotate(0deg) scale(0.6);
         opacity: 0;
       }
-      10% {
-        opacity: 0.9;
-      }
+      10% { opacity: 0.9; }
       50% {
         transform: translateY(-50vh) translateX(30px) rotate(180deg) scale(1.1);
       }
-      90% {
-        opacity: 0.8;
-      }
+      90% { opacity: 0.8; }
       100% {
         transform: translateY(-110vh) translateX(-20px) rotate(360deg) scale(0.8);
         opacity: 0;
@@ -185,15 +155,9 @@
     }
 
     @keyframes titleShimmer {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .subtitle {
@@ -249,12 +213,8 @@
     }
 
     @keyframes shimmerMove {
-      0% {
-        background-position: 200% 0;
-      }
-      100% {
-        background-position: -200% 0;
-      }
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     /* теннис */
@@ -784,15 +744,9 @@
     }
 
     @keyframes highlightFlow {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .song-line {
@@ -834,6 +788,217 @@
       font-style: normal;
     }
 
+    /* большой финальный столбик — благодарность за все 5 лет */
+    .final-thanks {
+      background: linear-gradient(135deg, 
+        rgba(140, 60, 220, 0.15) 0%,
+        rgba(90, 20, 160, 0.1) 50%,
+        rgba(180, 100, 255, 0.12) 100%);
+      border: 1px solid rgba(200, 130, 255, 0.4);
+      box-shadow: 
+        0 0 40px rgba(160, 80, 255, 0.3),
+        inset 0 0 60px rgba(140, 60, 220, 0.1);
+      padding: 2.2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-thanks::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(200, 130, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(160, 80, 255, 0.15) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .final-thanks-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-thanks-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      background: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 22px rgba(180, 100, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .final-thanks-title .icon {
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 10px rgba(200, 130, 255, 0.8));
+      -webkit-text-fill-color: initial;
+      background: none;
+    }
+
+    .final-thanks-text {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: #e0d0f5;
+      text-align: left;
+    }
+
+    .final-thanks-text p {
+      margin-bottom: 1rem;
+    }
+
+    .final-thanks-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .final-thanks-ending {
+      margin-top: 1.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px dashed rgba(200, 130, 255, 0.4);
+      text-align: center;
+      font-style: italic;
+      font-size: 1.15rem;
+      background: linear-gradient(120deg, #f0dcff, #c98dff, #e8c8ff, #b57aff, #f0dcff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      animation: highlightFlow 7s ease infinite;
+      text-shadow: 0 0 22px rgba(180, 100, 255, 0.4);
+    }
+
+    /* ФИНАЛЬНЫЕ 2 ФОТО + красная пульсирующая надпись */
+    .final-photos {
+      margin-top: 1.4rem;
+      background: linear-gradient(135deg, 
+        rgba(140, 60, 220, 0.1) 0%,
+        rgba(90, 20, 160, 0.08) 100%);
+      border: 1px solid rgba(200, 130, 255, 0.35);
+      box-shadow: 
+        0 0 30px rgba(160, 80, 255, 0.25),
+        inset 0 0 40px rgba(140, 60, 220, 0.08);
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-photos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(180, 100, 255, 0.08), transparent);
+      background-size: 200% 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .final-photos:hover::before {
+      opacity: 1;
+      animation: shimmerMove 2s linear infinite;
+    }
+
+    .final-photos-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-photos-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .final-photo-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(180, 100, 255, 0.4);
+      box-shadow: 
+        0 0 22px rgba(160, 80, 255, 0.3),
+        inset 0 0 10px rgba(160, 80, 255, 0.1);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: rgba(60, 20, 100, 0.3);
+    }
+
+    .final-photo-item:nth-child(1) { transform: rotate(-2deg); }
+    .final-photo-item:nth-child(2) { transform: rotate(2deg); }
+
+    .final-photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .final-photo-item:hover {
+      transform: scale(1.06) rotate(0deg);
+      border-color: rgba(230, 170, 255, 0.9);
+      box-shadow: 
+        0 0 35px rgba(200, 120, 255, 0.6),
+        0 0 70px rgba(160, 80, 255, 0.4),
+        inset 0 0 20px rgba(200, 120, 255, 0.25);
+      z-index: 3;
+    }
+
+    .final-photo-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* красная пульсирующая надпись с градиентом */
+    .final-love-message {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-style: italic;
+      text-transform: lowercase;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      background-image: linear-gradient(120deg, 
+        #ff5c5c 0%, 
+        #ff2e2e 20%, 
+        #ff7a7a 40%, 
+        #ff1a1a 60%, 
+        #ff5c5c 80%, 
+        #ff2e2e 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: redGradientFlow 4s ease infinite, lovePulse 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(255, 50, 50, 0.7)) drop-shadow(0 0 25px rgba(255, 30, 30, 0.4));
+      padding: 0.6rem 0.4rem;
+      user-select: none;
+    }
+
+    @keyframes redGradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes lovePulse {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 12px rgba(255, 50, 50, 0.7)) drop-shadow(0 0 25px rgba(255, 30, 30, 0.4));
+      }
+      50% {
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 20px rgba(255, 80, 80, 0.95)) drop-shadow(0 0 40px rgba(255, 40, 40, 0.7));
+      }
+    }
+
     .final-word {
       margin-top: 2rem;
       padding-top: 2rem;
@@ -854,18 +1019,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9));
-      }
-      50% {
-        transform: scale(1.25);
-        filter: drop-shadow(0 0 20px rgba(200, 130, 255, 1));
-      }
-      100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9));
-      }
+      0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
+      50% { transform: scale(1.25); filter: drop-shadow(0 0 20px rgba(200, 130, 255, 1)); }
+      100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(180, 100, 255, 0.9)); }
     }
 
     .emoji {
@@ -924,25 +1080,19 @@
     .music-indicator .bars span:nth-child(4) { animation-delay: 0.45s; height: 14px; }
 
     @keyframes barWave {
-      0%, 100% {
-        transform: scaleY(0.4);
-      }
-      50% {
-        transform: scaleY(1);
-      }
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
     }
 
     @media (max-width: 700px) {
       .tennis-layout {
         grid-template-columns: 1fr;
       }
-
       .tennis-arrow {
         font-size: 1.8rem;
         padding: 0.3rem 0;
         animation: arrowPulseDown 2s ease-in-out infinite;
       }
-
       @keyframes arrowPulseDown {
         0%, 100% {
           transform: rotate(90deg) translateX(0);
@@ -963,7 +1113,6 @@
       .nikogda-layout {
         grid-template-columns: 1fr;
       }
-
       .photos-grid {
         margin-top: 1rem;
       }
@@ -974,61 +1123,48 @@
         padding: 2rem 1.4rem;
         border-radius: 2rem;
       }
-
       h1 {
         font-size: 1.45rem;
       }
-
       .subtitle {
         font-size: 0.98rem;
       }
-
       .moment {
         font-size: 0.98rem;
         padding: 1.2rem 1.2rem;
       }
-
       .moment.tennis-moment {
         padding: 1.2rem 1rem;
       }
-
       .moment-title {
         font-size: 1.05rem;
       }
-
       .final-word {
         font-size: 1.05rem;
       }
-
       .photos-caption {
         font-size: 0.92rem;
       }
-
       .music-indicator {
         top: 0.7rem;
         right: 0.7rem;
         padding: 0.4rem 0.7rem;
         font-size: 0.75rem;
       }
-
       .song-line {
         font-size: 1.05rem;
         padding: 0.9rem 0.9rem;
       }
-
       .kisa-caption {
         font-size: 1rem;
         padding: 0.8rem 0.9rem;
       }
-
       .kisa-caption .line {
         font-size: 1.1rem;
       }
-
       .kisa-gallery {
         gap: 0.7rem;
       }
-
       .tennis-caption,
       .revn-caption,
       .teplo-caption,
@@ -1039,6 +1175,24 @@
         font-size: 1rem;
         padding: 0.7rem 0.8rem;
       }
+      .final-thanks {
+        padding: 1.6rem 1.2rem;
+      }
+      .final-thanks-title {
+        font-size: 1.15rem;
+      }
+      .final-thanks-text {
+        font-size: 0.98rem;
+      }
+      .final-thanks-ending {
+        font-size: 1.02rem;
+      }
+      .final-photos {
+        padding: 1.2rem;
+      }
+      .final-love-message {
+        font-size: 1.15rem;
+      }
     }
   </style>
 </head>
@@ -1048,10 +1202,7 @@
 
   <div class="music-indicator" id="musicIndicator">
     <div class="bars">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
     <span>играет</span>
   </div>
@@ -1083,34 +1234,18 @@
               мы с тобой поднимаемся по лезвию в небо
             </div>
           </div>
-
           <div class="tennis-arrow">→</div>
-
           <div class="tennis-photos">
             <div class="photo-row">
-              <div class="photo-cell">
-                <img src="tennis1.jpg" alt="даша на теннисе">
-              </div>
-              <div class="photo-cell">
-                <img src="tennis2.jpg" alt="даша с ракеткой">
-              </div>
-              <div class="photo-cell">
-                <img src="tennis3.jpg" alt="даша на корте">
-              </div>
+              <div class="photo-cell"><img src="tennis1.jpg" alt="даша на теннисе"></div>
+              <div class="photo-cell"><img src="tennis2.jpg" alt="даша с ракеткой"></div>
+              <div class="photo-cell"><img src="tennis3.jpg" alt="даша на корте"></div>
             </div>
-
             <div class="photo-row">
-              <div class="photo-cell">
-                <img src="tennis4.jpg" alt="даша">
-              </div>
-              <div class="photo-cell">
-                <img src="tennis5.jpg" alt="даша">
-              </div>
-              <div class="photo-cell">
-                <img src="tennis6.jpg" alt="даша">
-              </div>
+              <div class="photo-cell"><img src="tennis4.jpg" alt="даша"></div>
+              <div class="photo-cell"><img src="tennis5.jpg" alt="даша"></div>
+              <div class="photo-cell"><img src="tennis6.jpg" alt="даша"></div>
             </div>
-
             <div class="tennis-caption">
               ну разве быть грустной, лучше чем весёлой?<span class="heart-inline">❤</span>
             </div>
@@ -1126,20 +1261,13 @@
         <div class="moment-text">
           дашуля, киса, <span class="highlight">не грусти никогда больше, пожалуйста</span>. я знаю, что бывают плохие дни. знаю, что иногда всё валится из рук, и кажется, что никому до тебя нет дела. но это не так. <span class="highlight">я рядом</span>. всегда. <span class="highlight">и всегда помогу</span> — чем смогу, когда смогу, как смогу. просто напиши мне. просто скажи. я приду, даже если это будет через экран. потому что ты — не одна. и никогда не будешь. слышишь, киса? <span class="emoji">:3</span>
         </div>
-
         <div class="kisa-gallery">
-          <div class="kisa-item">
-            <img src="kisa1.jpg" alt="даша">
-          </div>
-          <div class="kisa-item">
-            <img src="kisa2.jpg" alt="даша">
-          </div>
+          <div class="kisa-item"><img src="kisa1.jpg" alt="даша"></div>
+          <div class="kisa-item"><img src="kisa2.jpg" alt="даша"></div>
         </div>
-
         <div class="kisa-caption">
           <span class="line">ты очень красивая, даш.. никогда больше не грусти <span class="heart-inline">❤</span></span>
         </div>
-
         <div class="song-line">
           его хватит надолго, чтобы согреться
         </div>
@@ -1187,11 +1315,8 @@
               ну, конечно, уверен, забери моё сердце
             </div>
           </div>
-
           <div class="revn-photo-block">
-            <div class="revn-photo">
-              <img src="revn1.jpg" alt="даша">
-            </div>
+            <div class="revn-photo"><img src="revn1.jpg" alt="даша"></div>
             <div class="revn-caption">
               я думаю, что серёга не достоин тебя <span class="heart-inline">❤</span>
             </div>
@@ -1207,20 +1332,13 @@
         <div class="moment-text">
           знаешь, я иногда думаю: как так вышло, что один человек может согревать сильнее, чем что угодно? ты просто пишешь — и мне уже теплее. просто звонишь — и день становится лучше. это не магия, это ты. и этого тепла хватает надолго, чтобы пережить всё.
         </div>
-
         <div class="teplo-gallery">
-          <div class="teplo-item">
-            <img src="teplo1.jpg" alt="даша">
-          </div>
-          <div class="teplo-item">
-            <img src="teplo2.jpg" alt="даша">
-          </div>
+          <div class="teplo-item"><img src="teplo1.jpg" alt="даша"></div>
+          <div class="teplo-item"><img src="teplo2.jpg" alt="даша"></div>
         </div>
-
         <div class="teplo-caption">
           ты очень красивая и тёплая<span class="heart-inline">:3</span>
         </div>
-
         <div class="song-line">
           его хватит надолго, чтобы согреться
         </div>
@@ -1260,20 +1378,13 @@
         <div class="moment-text">
           ты всегда рядом, даже когда я не заслуживаю. ты — светлая, красивая, нарядная — и всё равно со мной. я до сих пор не понимаю, как тебе не надоедает такой безнадёжный, как я. но ты остаёшься. и я это очень ценю.
         </div>
-
         <div class="nad-gallery">
-          <div class="nad-item">
-            <img src="nad1.jpg" alt="даша">
-          </div>
-          <div class="nad-item">
-            <img src="nad2.jpg" alt="даша">
-          </div>
+          <div class="nad-item"><img src="nad1.jpg" alt="даша"></div>
+          <div class="nad-item"><img src="nad2.jpg" alt="даша"></div>
         </div>
-
         <div class="nad-caption">
           ты всегда нарядная и красивая<span class="heart-inline">❤</span>
         </div>
-
         <div class="song-line">
           я такой безнадёжный, ты такая нарядная
         </div>
@@ -1358,21 +1469,12 @@
               знаешь, думать и париться — бесполезная тема
             </div>
           </div>
-
           <div>
             <div class="photos-grid">
-              <div class="photo-item">
-                <img src="photo1.jpg" alt="даша">
-              </div>
-              <div class="photo-item">
-                <img src="photo2.jpg" alt="даша">
-              </div>
-              <div class="photo-item">
-                <img src="photo3.jpg" alt="даша">
-              </div>
-              <div class="photo-item">
-                <img src="photo4.jpg" alt="даша">
-              </div>
+              <div class="photo-item"><img src="photo1.jpg" alt="даша"></div>
+              <div class="photo-item"><img src="photo2.jpg" alt="даша"></div>
+              <div class="photo-item"><img src="photo3.jpg" alt="даша"></div>
+              <div class="photo-item"><img src="photo4.jpg" alt="даша"></div>
             </div>
             <div class="photos-caption">
               ты красивая абсолютно всегда и везде, и ненакрашенная, и сонная, и просто злая, ты красивая — <span class="glow">всегда</span> <span class="heart-inline">❤</span>
@@ -1434,11 +1536,8 @@
               эти белые стены стали для нас облаками
             </div>
           </div>
-
           <div class="zabota-photo-block">
-            <div class="zabota-photo">
-              <img src="zabota1.jpg" alt="даша">
-            </div>
+            <div class="zabota-photo"><img src="zabota1.jpg" alt="даша"></div>
             <div class="zabota-caption">
               заботливая<span class="heart-inline">:3</span>
             </div>
@@ -1499,15 +1598,10 @@
               это только сейчас, это не повторится
             </div>
           </div>
-
           <div class="druzhba-photo-block">
             <div class="druzhba-gallery">
-              <div class="druzhba-item">
-                <img src="druzhba1.jpg" alt="даша">
-              </div>
-              <div class="druzhba-item">
-                <img src="druzhba2.jpg" alt="даша">
-              </div>
+              <div class="druzhba-item"><img src="druzhba1.jpg" alt="даша"></div>
+              <div class="druzhba-item"><img src="druzhba2.jpg" alt="даша"></div>
             </div>
             <div class="druzhba-caption">
               ты киса:3<span class="heart-inline">❤</span>
@@ -1530,11 +1624,8 @@
               никогда не забуду...
             </div>
           </div>
-
           <div class="nikogda-photo-block">
-            <div class="nikogda-photo">
-              <img src="nikogda1.jpg" alt="ты куколка">
-            </div>
+            <div class="nikogda-photo"><img src="nikogda1.jpg" alt="ты куколка"></div>
             <div class="nikogda-caption">
               ты куколка<span class="heart-inline">:3</span>
             </div>
@@ -1565,6 +1656,45 @@
         </div>
         <div class="song-line">
           мой прокуренный голос, твои тёплые губы — я целую, целую, целую, целую
+        </div>
+      </div>
+
+      <!-- 27. ФИНАЛЬНЫЙ БОЛЬШОЙ СТОЛБ — благодарность за все 5 лет -->
+      <div class="moment final-thanks">
+        <div class="final-thanks-inner">
+          <div class="final-thanks-title">
+            <span class="icon">💜</span> спасибо тебе за все 5 лет
+          </div>
+          <div class="final-thanks-text">
+            <p>
+              дашуля, я хочу сказать тебе спасибо за <span class="highlight">каждый день этих пяти лет</span>. за утро, когда ты писала первая. за ночь, когда мы не могли остановиться и говорили до рассвета. за глупые мемы, за серьёзные разговоры, за молчание, которое тоже было важным. за то, что ты никогда не бросала меня — даже когда я был невыносимым. за твою <span class="highlight">заботу</span>, которая чувствуется даже через экран. за то, что ты умеешь выслушать так, что становится легче дышать. за то, что рядом с тобой я могу быть настоящим — без масок, без фильтров, без притворства.
+            </p>
+            <p>
+              спасибо за <span class="highlight">все тёплые и приятные моменты</span> — за каждое «как ты?», за каждое «я рядом», за каждое «всё будет хорошо». спасибо за смех до слёз, за ссоры, после которых мы становились ближе, за примирения, которые были дороже любых побед. спасибо за то, что ты просто есть. потому что иногда даже простое «привет» от тебя делает день лучше.
+            </p>
+            <p>
+              спасибо за то, что ты веришь в меня, даже когда я сам в себя не верю. спасибо за то, что ты не боишься говорить мне правду — даже если она неудобная. спасибо за то, что ты рядом в плохие дни, и за то, что умеешь радоваться хорошим вместе со мной. спасибо за то, что ты — <span class="highlight">мой человек</span>. не просто подруга, не просто знакомая, а тот, кому можно всё. тот, с кем не страшно. тот, с кем тепло.
+            </p>
+            <p>
+              эти пять лет — это не просто годы. это <span class="highlight">целая жизнь</span>, прожитая вдвоём. и я хочу, чтобы ты знала: я благодарен за каждую её секунду. и если бы можно было прожить их заново — я бы не изменил ничего. потому что всё это — наше. тёплое, неловкое, смешное, настоящее.
+            </p>
+          </div>
+          <div class="final-thanks-ending">
+            спасибо, даша. за всё. за всегда. <span class="heart-inline">❤</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 28. ФИНАЛЬНЫЕ 2 ФОТО + красная пульсирующая надпись -->
+      <div class="moment final-photos">
+        <div class="final-photos-inner">
+          <div class="final-photos-gallery">
+            <div class="final-photo-item"><img src="final1.jpg" alt="даша"></div>
+            <div class="final-photo-item"><img src="final2.jpg" alt="даша"></div>
+          </div>
+          <div class="final-love-message">
+            спасибо за все, даш, я люблю тебя&lt;3
+          </div>
         </div>
       </div>
     </div>
